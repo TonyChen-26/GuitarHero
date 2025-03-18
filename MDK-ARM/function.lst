@@ -1,0 +1,55 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 PRESERVE8
+    2 00000000                 AREA             |.text|, CODE, READONLY
+    3 00000000         
+    4 00000000                 EXPORT           Update_Mes
+    5 00000000         Update_Mes
+                               PROC
+    6 00000000 6802            ldr              R2,[R0]
+    7 00000002 4903            ldr              R1,=0x00FC0100
+    8 00000004 FA82 F241       uadd8            R2,R2,R1
+    9 00000008 4902            ldr              R1,=0xFF7F7FFF
+   10 0000000A 400A            ands             R2,R2,R1
+   11 0000000C 6002            str              R2,[R0]
+   12 0000000E 4770            bx               LR
+   13 00000010                 ENDP
+   14 00000010         
+   15 00000010                 END
+              00FC0100 
+              FF7F7FFF 
+Command Line: --debug --xref --diag_suppress=9931,A1950W --cpu=Cortex-M4.fp.sp 
+--depend="banc de test\function.d" -o"banc de test\function.o" -I.\RTE\_Banc_de
+_test -IC:\Users\chent\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Inclu
+de -IC:\Users\chent\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\C
+MSIS\Device\ST\STM32F4xx\Include --predefine="__MICROLIB SETA 1" --predefine="_
+_UVISION_VERSION SETA 538" --predefine="_RTE_ SETA 1" --predefine="STM32F446xx 
+SETA 1" --predefine="_RTE_ SETA 1" --list=function.lst ..\Src\function.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 2 in file ..\Src\function.asm
+   Uses
+      None
+Comment: .text unused
+Update_Mes 00000000
+
+Symbol: Update_Mes
+   Definitions
+      At line 5 in file ..\Src\function.asm
+   Uses
+      At line 4 in file ..\Src\function.asm
+Comment: Update_Mes used once
+2 symbols
+339 symbols in table
